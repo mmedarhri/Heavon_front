@@ -1,8 +1,8 @@
-Template.postSubmit.created = function() {
+Template.postTransfer.created = function() {
   Session.set('postSubmitErrors', {});
 }
 
-Template.postSubmit.helpers({
+Template.postTransfer.helpers({
   errorMessage: function(field) {
     return Session.get('postSubmitErrors')[field];
   },
@@ -11,17 +11,17 @@ Template.postSubmit.helpers({
   }
 });
 
-Template.postSubmit.events({
+Template.postTransfer.events({
   'submit form': function(e) {
     e.preventDefault();
     
     var post = {
-      url: $(e.target).find('[name=url]').val(),
-      title: $(e.target).find('[name=title]').val()
+      amount_sent: $(e.target).find('[name=amount_sent]').val(),
+      amount_received: $(e.target).find('[name=amount_received]').val()
     };
     
     var errors = validatePost(post);
-    if (errors.title || errors.url)
+    if (errors.amont_sent || errors.amont_received)
       return Session.set('postSubmitErrors', errors);
     
     Meteor.call('postInsert', post, function(error, result) {

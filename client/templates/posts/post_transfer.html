@@ -1,0 +1,28 @@
+<template name="postTransfer">
+  <form class="main form">
+    <div class="form-group {{errorClass 'amount_sent'}}">
+      <!--<label class="control-label" for="url">URL</label>-->
+      <div class="controls">
+          <input name="amount_sent" id="amount_sent" type="text" value="" placeholder="YOU SEND" class="form-control"/>
+          <!--TO DO ADD DROP DOWN CURRENCY-->
+          <span class="help-block">{{errorMessage 'amount_sent'}}</span>
+          <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+              Currency
+              <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          </ul>
+      </div>
+
+    </div>
+    <div class="form-group {{errorClass 'amount_received'}}">
+      <!--<label class="control-label" for="title">Title</label>-->
+      <div class="controls">
+          <input name="amount_received" id="amount_received" type="text" value="" placeholder="RECEIVE" class="form-control"/>
+          <!--TO DO ADD DROP DOWN CURRENCY-->
+          <span class="help-block">{{errorMessage 'amount_received'}}</span>
+      </div>
+    </div>
+    <input type="submit" value="GET STARTED" class="btn btn-primary"/>
+  </form>
+</template>
